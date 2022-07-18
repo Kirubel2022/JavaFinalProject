@@ -1,0 +1,51 @@
+package com.generation.service;
+
+import com.generation.model.Course;
+import com.generation.model.Student;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class StudentService
+{
+    private final Map<String, Student> students = new HashMap<>();
+
+    public void subscribeStudent( Student student )
+    {
+        students.put( student.getId(), student );
+    }
+
+    public Student findStudent( String studentId )
+    {
+        if ( students.containsKey( studentId ) )
+        {
+            return students.get( studentId );
+        }
+        return null;
+    }
+
+    public void showSummary()
+    {
+        System.out.println("*********************");
+//        System.out.println("Total Students: " +students.size());
+        System.out.println("Average");
+        for(Student student : students.values()){
+            System.out.println(student.toString());
+            System.out.println("Courses Taken by: "+student.getName());
+            for(Course course : student.getCourses()){
+                System.out.println(course.toString());
+            }
+        }
+//       System.out.println("*********************");
+    }
+
+    public void enrollToCourse( String studentId, Course course )
+    {
+        if ( students.containsKey( studentId ) )
+        {
+            students.get( studentId ).enrollToCourse( course );
+        }
+    }
+
+
+}
