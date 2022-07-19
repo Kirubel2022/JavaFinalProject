@@ -1,13 +1,15 @@
 package test;
+
 import com.generation.service.CourseService;
 import org.junit.jupiter.api.test;
 
-import static org.junit.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class CourseServiceTest {
+
+public class StudentServiceTest {
     @Test
-    void courseCodeOfINTRO_CS_1(){
-        courseService courseService= new CourseService();
-        assertEquals(expected:"INTRO-WEB-1",courseService.getCourse(code:"INTRO-WEB-1").getcode());
+   void checkStudentId(){
+        studentService studentService= new studentService();
+        assertNull(studentService.findStudent(studentid:"A123");
     }
 }
